@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <nav class="navbar">
+        <a href="/Frontend/1.Home/home.html" class="back-btn">
+          ← Back
+        </a>
+        <div class="logo-container">
+          <img src="/images/Mindease.png" alt="Mind Ease Logo" class="logo">
+          <span class="website-name">Mind<span style="color:White">Ease</span></span>
+        </div>
+        <div class="nav-placeholder">
+          <button id="bk">
+            <a href="/Frontend/3.Therapist Page/Bookedsession.html" class="back-btn">
+              Booked Sessions
+            </a>
+          </button>
+        </div>
+    </nav>
+  </section>
+
+  <div class="therapist-container">
+    
+  </div>
+
+  <section>
+    <div class="footer">
+      © 2024 Mind Ease. All rights reserved.
+    </div>
+  </section>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const therapistContainer = document.querySelector(".therapist-container");
+
+      try {
+        const response = await fetch("http://localhost:5000/api/therapists");
+        const therapists = await response.json();
+
+        let therapistHTML = `
+          <h1>Our Experienced Therapists</h1>
+          <section>
+        `;
+
+        therapists.forEach((therapist) => {
+          therapistHTML += `
+            <div class="therapist-card">
+              <img src="${therapist.image}" alt="${therapist.name}" class="therapist-img">
+              <div class="therapist-info">
+                <h3>${therapist.name}</h3>
+                <p><strong>Specialization:</strong> ${therapist.specialization}</p>
+                <p><strong>Experience:</strong> ${therapist.experience}</p>
+                <p><strong>Fees:</strong> ${therapist.fees}</p>
+                <p>${therapist.description}</p>
+                <a href="/Frontend/3.Therapist Page/Bookingpage.html?therapist=${therapist.name.replace(
+                  /\s/g,
+                  ""
+                )}" class="book-btn">Book Appointment</a>
+              </div>
+            </div>
+          `;
+        });
+
+        therapistHTML += `</section>`;
+        therapistContainer.innerHTML = therapistHTML;
+      } catch (error) {
+        console.error("Error fetching therapists:", error);
+        therapistContainer.innerHTML = "<p>Failed to load therapists.</p>";
+      }
+    });
+  </script>
+</body>
+</html>

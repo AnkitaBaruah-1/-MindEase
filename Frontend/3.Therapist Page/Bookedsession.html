@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Booked Sessions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <nav class="navbar">
+            <a href="/Frontend/3.Therapist Page/Therapistpage.html" class="back-btn">
+              ← Back
+            </a>
+          
+            <div class="logo-container">
+              <img src="/images/Mindease.png" alt="Mind Ease Logo" class="logo">
+              <span class="website-name">Mind<span style="color:White">Ease</span></span>
+            </div>
+            <div class="nav-placeholder" style="color:White" >SESSIONS</div>
+          </nav>
+        </section>
+        <div id="bookings-container">
+          <h1>Your Booked Sessions</h1>
+          <div id="bookings-list"></div>
+        </div>
+        
+        <script>
+          
+        async function fetchBookings() {
+            try {
+              const response = await fetch('http://localhost:5000/api/bookings');
+              const bookings = await response.json();
+              console.log('Bookings fetched:', bookings); 
+             
+              const bookingsList = document.getElementById('bookings-list');
+              bookingsList.innerHTML = bookings
+                .map(
+                  (booking) => `
+                <div class="booking-card" data-id="${booking._id}">
+                  <h3>Therapist: ${booking.therapist}</h3>
+                  <p><strong>Concern:</strong> ${booking.concern}</p>
+                  <p><strong>Date:</strong> ${booking.date}</p>
+                  <p><strong>Time Slot:</strong> ${booking.timeSlot}</p>
+                  <p><strong>Mode:</strong> ${booking.mode}</p>
+                  <button class="delete-btn">Delete</button>
+                </div>
+              `
+                )
+                .join('');
+        
+              document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', deleteBooking);
+              });
+        
+              document.querySelectorAll('.select-btn').forEach(button => {
+                button.addEventListener('click', selectBooking);
+              });
+        
+            } catch (error) {
+              console.error('Error fetching bookings:', error);
+            }
+          }
+        
+          async function deleteBooking(e) {
+            const bookingId = e.target.closest('.booking-card').dataset.id;
+            
+            try {
+              const response = await fetch(`http://localhost:5000/api/bookings/${bookingId}`, {
+                method: 'DELETE',
+              });
+        
+              if (response.ok) {
+                alert('Booking deleted successfully!');
+                fetchBookings(); 
+              }
+            } catch (error) {
+              console.error('Error deleting booking:', error);
+            }
+          }
+          fetchBookings();
+        </script>
+</body>
+</html>

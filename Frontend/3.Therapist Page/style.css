@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #AEDFF7; 
+    color: #004080; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position:sticky;
+    top: 1;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .back-btn {
+    color: #355C7D;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 2px solid #355C7D;
+    border-radius: 5px;
+    transition: all 0.3s ease; 
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  
+  .navbar .back-btn:hover {
+    background-color: #355C7D;
+    color: #AEDFF7;
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  .navbar .logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%; 
+    object-fit: cover;
+  }
+  
+  .navbar .website-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #004080;
+  }
+  
+  .nav-placeholder {
+    width: 100px;
+    color: black;
+  }
+
+  .nav-placeholder button{
+    border-radius: 10px;
+    border:none;
+    color: #004080;
+  }
+
+
+  .nav-placeholder a{
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar .back-btn,
+    .navbar .logo-container,
+    .navbar .nav-placeholder {
+      margin: 5px 0;
+    }
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+  }
+  
+  .therapist-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .therapist-card {
+    display: flex;
+    background: white;
+    border: 2px solid #add8e6;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .therapist-card:hover {
+    transform: translateY(0);
+  }
+  
+  .therapist-img {
+    max-width: 180px;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+  
+  .therapist-info {
+    max-width: 800px;
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .book-btn {
+    display: inline-block;
+    background-color: #5aaaf0;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .book-btn:hover {
+    background-color: #004080; 
+    color: White ;
+    transition: 1s ease;
+}
+  
+  p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  
+  strong {
+    color: #004080;
+  }
+  
+  .footer {
+    background-color: #0866a5;
+    color: #f6fbff;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .video-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .video-item {
+      width: 80%;
+    }
+  }
+
+  
+  h1 {
+    text-align: center;
+    color: #004080;
+    margin-top: 30px;
+    font-size: 2rem;
+  }
+  
+  .booking-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #add8e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+#concern{
+  height: 200px;
+  text-decoration: none;
+}
+  label {
+    font-size: 1.2rem;
+    color: #004080;
+    display: block;
+    margin-top: 20px;
+  }
+  
+  textarea, input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #5aaaf0;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  textarea:focus, input[type="date"]:focus {
+    outline: none;
+    border: 2px solid #004080;
+    text-decoration: none;
+  }
+  
+  .word-count {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .slot-container, .mode-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .slot, .mode {
+    padding: 10px 15px;
+    border: 2px solid #add8e6;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .slot:hover, .mode:hover {
+    background-color: #e0f7ff;
+    border-color: #004080;
+  }
+  
+  .slot.active, .mode.active {
+    background-color: #004080;
+    color: white;
+    border-color: #004080;
+  }
+  
+  
+.preferred-mode {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+.preferred-mode label {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  width: 120px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.preferred-mode label input {
+  display: none;
+}
+
+
+.preferred-mode label:hover {
+  background-color: #e3f2fd;
+  border-color: #007BFF;
+}
+
+.preferred-mode label div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.preferred-mode input[type="radio"]:checked + div {
+  background-color: #007BFF;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+  
+  .confirm-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #5aaaf0;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #004080;
+  }
+  
+
+  .booked-sessions-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #add8e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 20px;
+  }
+  
+  .session-card {
+    border: 1px solid #add8e6;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .session-card h3 {
+    color: #004080;
+    margin-bottom: 10px;
+  }
+  
+  .session-card p {
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .no-sessions {
+    text-align: center;
+    color: #555;
+    font-size: 1.1rem;
+    margin-top: 20px;
+  }
+  .booking-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  .booking-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .delete-btn{
+    color:#004080;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid #132c64;
+    width: 70px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #4a78be;
+    color:white;
+  }
+  
+  .slot {
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .slot:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .slot.selected {
+    background-color: #132c64; 
+    color: white;
+  }
+  
